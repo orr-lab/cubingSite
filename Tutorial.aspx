@@ -59,6 +59,6 @@
     </p>
 
     <h2><br />Practice makes perfect!</h2>
-    <h3>The most importent part of cubing is practice, timers are a great way to practice, this website has a cube timer for it's members so you should <a href="Register.aspx" style="margin-left: 0;">sign up!</a></h3>
+    <h3>The most importent part of cubing is practice, timers are a great way to practice, this website has a <a href="timer.aspx" style="margin-left: 0; margin-right: 0;">cube timer</a> for it's members so you should <a href="Register.aspx" style="margin-left: 0;">sign up!</a></h3>
 </asp:Content>
 
