@@ -1,0 +1,34 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="style.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+        
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    
+        <header style="display: flex; align-items: center; gap: 50px;">
+            <a href="Home.aspx"><img src="photos/logo.png" width="200"/></a>
+            <h1>Rublik's Cubes</h1> <br />
+        </header>
+    <center>
+        <a href="Home.aspx"">Home Page</a>
+        <a href="Tutorial.aspx">Tutorial</a>
+        <a href="Register.aspx">Register</a>
+        <a href="logIn.aspx">Log In</a>
+        <a href="timer.aspx">Timer (Members Only)</a>
+        <hr />
+    
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        <hr />
+        <h4>contact me: <br /> orrknaan@gmail.com   051-517-9925   </h4>
+    </center>    
+        
+</body>
+</html>
