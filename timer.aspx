@@ -34,7 +34,6 @@
     <h3 id="PB">Personal best single: </h3>
     <h3 id="PBo5">Personal best avarage of 5: </h3>
     <h3 id="PBo12">Personal best avarage of 12: </h3>
-    <h3 id="PBo100">Personal best avarage of 100</h3>
     <hr />
     <h2>Compared to the world</h2>
     <select name="branch" id="branch">

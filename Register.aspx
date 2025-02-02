@@ -31,7 +31,7 @@
     <br />
     <br />
 
-    <form>
+    <form runat="server" method="post">
         <label for="username">Username</label>
         <input type="text" id="username" name="username" required/> <br /> <br />
 
@@ -49,11 +49,11 @@
 
 
         <p>Gender: </p>
-        <input type="radio" id="male" name="gender">
+        <input type="radio" id="male" name="gender" value="male">
         <label for="male">Male</label><br>
-        <input type="radio" id="female" name="gender">
+        <input type="radio" id="female" name="gender" value="female">
         <label for="female">Female</label><br>
-        <input type="radio" id="other" name="gender">
+        <input type="radio" id="other" name="gender" value="other">
         <label for="other">Other</label> <br /><br />
 
         <label for="age">Age</label>
@@ -79,8 +79,10 @@
         <label for="PBavg">What is your PB ao5 (avarage of 5)?</label>
         <input type="time" id="PBavg" name="PBavg" /><br /><br /><br />
 
-        <input type="submit" value="submit"/>
+        <input type="submit" value="submit" name="submit"/>
         <input type="reset" value="reset" />
     </form>
+
+    <%=msg %>
 </asp:Content>
 
