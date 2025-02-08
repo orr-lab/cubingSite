@@ -83,6 +83,6 @@
         <input type="reset" value="reset" />
     </form>
 
-    <%=msg %>
+    <p style="color: lightblue; font-weight: bold; margin-top: 10px;"><%= msg %></p>
 </asp:Content>
 

@@ -1,7 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="logIn.aspx.cs" Inherits="logIn" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="changePass.aspx.cs" Inherits="logIn" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <title>Log In</title>
+    <title>Change Password</title>
     <style>
         label{
             color: white;
@@ -25,18 +25,19 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <h1>Log in:</h1>
+    <h1>Change Password:</h1>
     <form runat="server" method="post">
         <label for="username">Username </label>
         <input type="text" id="username" name="username" /><br />
-        <label for="password">Password </label>
-        <input type="password" id="password" name="password" /> <br />
+        <label for="password">Current Password</label>
+        <input type="password" id="oldpw" name="oldpw" /> <br />
+        <label for="password">New Password</label>
+        <input type="password" id="pw" name="pw" /> <br />
         <label for-="repass">Confirm password </label>
         <input type="password" name="repass" id="repass" /><br /> <br />
         <input type="submit" id="submit" name="submit" value="submit" />
         <input type="reset" id="reset" name="reset" value="reset" /> <br />
-        <input type="button" id="changepass" name="changepass" value="Change Password" onclick="window.location.href='changePass.aspx';"/>
     </form>
-    <p style="color: red; font-weight: bold; margin-top: 10px;"><%= msg %></p>
+    <p style="color: darkcyan; font-weight: bold; margin-top: 10px;"><%= msg %></p>
 </asp:Content>
 

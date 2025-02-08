@@ -83,14 +83,15 @@ public partial class Register : System.Web.UI.Page
             float singleFloat = minutesSingle + secondsSingle;
             float avgFloat = minutesAvg + secondsAvg;
 
-            string sql1 = "Select * from [users] where uName='" + uName + "' and email='" + email + "' and pw= '" + pw + "'";
+            string sql1 = "Select * from [users] where email='" + email + "'";
             if (MyAdoHelper.IsExist("Database.mdf", sql1))
-                msg = "Your name already exixsts!";
+                msg = "You already exist in our site!";
             else
             {
                 string sql2 = "Insert into [users] (uName,email,pw,fName,lName,gender,age,vGaming,bGaming,biking,dnd,sports,hobbyother) values ('" + uName + "','" + email + "','" + pw + " ',' " + fName + "','" + lName + "','" + gender + "','" + age + "',"+vGaming+","+bGaming+","+biking+","+dnd+","+sports+","+hobbyOther+");";
                 MyAdoHelper.DoQuery("Database.mdf", sql2);
                 msg = "you were added to our site!";
+                
 
                 string sql3 = "Insert into [PBs] (uName,single,ao5) values ('" + uName + "'," + singleFloat + "," + avgFloat + ");";
                 MyAdoHelper.DoQuery("Database.mdf", sql3);
