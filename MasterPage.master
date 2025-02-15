@@ -22,6 +22,7 @@
         <a href="Register.aspx">Register</a>
         <a href="logIn.aspx">Log In</a>
         <a href="timer.aspx">Timer (Members Only)</a>
+        <a href="logOut.aspx">Log Out</a>
         <hr />
     
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">

@@ -95,6 +95,9 @@ public partial class Register : System.Web.UI.Page
 
                 string sql3 = "Insert into [PBs] (uName,single,ao5) values ('" + uName + "'," + singleFloat + "," + avgFloat + ");";
                 MyAdoHelper.DoQuery("Database.mdf", sql3);
+
+                Session["user"] = uName;
+                Response.Write("hello to " + Session["user"]);
             }
         }
     }
