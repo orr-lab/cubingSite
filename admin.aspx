@@ -11,10 +11,28 @@
     <br />
 
     <form runat="server" method="post">
-        <h3 style="color:red">DELETE</h3>
         <p>username:</p>
         <input type="text" name ="uName" />
-        <input type="submit" value="submit" name="submit"/>
+        <h3 style="color:red">DELETE</h3>
+        <input type="submit" value="Delete!" name="submit1"/> <br />
+        <h3>CHANGE INFO</h3>
+        <p>What do you want to change? </p> 
+        <select name="toChange">
+            <option value="uName">Username</option>
+            <option value="email">Email</option>
+            <option value="pw">Password</option>
+            <option value="fName">First Name</option>
+            <option value="lName">Last Name</option>
+            <option value="gender">Gender</option>
+            <option value="age">Age</option>
+            <option value="admin">Is Admin?</option>
+        </select> <br />
+        <p> What do you want to change it to?</p>
+        <input type="text" name="changeTo" /> <br />
+        
+        
+        <input type="submit" name="submit2" value="Change!" />
     </form>
+   
 </asp:Content>
 

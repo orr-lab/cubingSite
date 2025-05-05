@@ -19,6 +19,28 @@
             background-color: #555555;
         }   
     </style>
+
+    <script>
+        function genarateScramble(){
+            const options = ['U', 'D', 'R', 'L', 'F', 'B'];
+            const modifires = ['', "'", '2'];
+
+            let move;
+            let scramble = ""
+            for (var i = 0; i < 20; i++) {
+                move = ""
+                move = options[Math.floor(Math.random() * options.length)];
+                move += modifires[Math.floor(Math.random() * modifires.length)];
+
+                scramble += move + " ";
+            }
+
+            
+            document.getElementById("scramble").innerHTML = scramble.trim();
+        }
+
+        window.addEventListener("load", genarateScramble);
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <h1 style="margin-left: 0px;">Rubik's Cube Timer</h1> <br />

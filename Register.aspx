@@ -24,6 +24,135 @@
         }
         
     </style>
+
+    <script type="text/javascript">
+        function checkAll() {
+            return checkFname() && checkLname() && checkPass() && checkUname();
+        }
+
+        function checkFname() {
+            var fName = document.getElementById("fname").value;
+            //window.alert(fName);
+            if (fName[0] < 'A' || fName[0] > 'Z') {
+                window.alert("First name must start with a CAPITAL letter")
+                return false;
+            }
+
+            if (fName.length >= 50) {
+                window.alert("First name too long (max 50)")
+                return false;
+            }
+
+            for (var i = 1; i < fName.length; i++) {
+                if (fName[i] < 'a' || fName[i] > 'z') {
+                    window.alert("in the first name, all characters must be lowewecase letters exept for the first one");
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function checkLname() {
+            var fName = document.getElementById("lname").value;
+            //window.alert(fName);
+            if (fName[0] < 'A' || fName[0] > 'Z') {
+                window.alert("Last name must start with a CAPITAL letter")
+                return false;
+            }
+
+            if (fName.length >= 50) {
+                window.alert("Last name too long (max 50)")
+                return false;
+            }
+
+            for (var i = 1; i < fName.length; i++) {
+                if (fName[i] < 'a' || fName[i] > 'z') {
+                    window.alert("in the last name, all characters must be letters and lowewecase exept for the first one");
+                    return false;
+                }
+            }
+            return true;
+        }
+        function checkPass(){
+            var pass = document.getElementById("pass").value;
+
+            if (pass.length >= 50) {
+                window.alert("Password is too long (max 50 chars)")
+                return false;
+            }
+            if (pass.length <= 8) {
+                window.alert("Password is too short (min 8 chars)")
+                return false;
+            }
+
+            var flag = false
+            for (var i = 0; i < pass.length; i++) {
+                if (pass[i] >= 'A' && pass[i] <= 'Z') {
+                    flag = true;
+                }
+
+                
+            }
+
+            if (!flag) {
+                window.alert("Password must contain at least one CAPITAL letter")
+                return false;
+            }
+
+            flag = false;
+
+            var nums = "0123456789";
+
+            for (var i = 0; i < pass.length; i++) {
+                for (var j = 0; j < nums.length; j++) {
+                    if (pass[i] == nums[j]) {
+                        flag = true;
+                    }
+                }
+            }
+
+            if (!flag) {
+                window.alert("Password must contain at least one number")
+                return false;
+            }
+
+            flag = false;
+
+            var symbols = "&+!@#$*%()-_="
+
+            for (var i = 0; i < pass.length; i++) {
+                for (var j = 0; j < symbols.length; j++) {
+                    if (pass[i] == symbols[j]) {
+                        flag = true;
+                    }
+                }
+            }
+
+            if (!flag) {
+                window.alert("Password must contain at least one symbol (" + symbols + ")")
+                return false;
+            }
+
+            return true;
+
+        }
+
+        function checkUname() {
+            var pass = document.getElementById("username").value;
+
+            if (pass.length >= 20) {
+                window.alert("Username is too long (max 20 chars)")
+                return false;
+            }
+            if (pass.length <= 1) {
+                window.alert("Username is too short (min 1 chars)")
+                return false;
+            }
+            return true;
+        }
+
+
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <h1>Register</h1>
@@ -31,21 +160,21 @@
     <br />
     <br />
 
-    <form runat="server" method="post">
+    <form id="form1" name="form1" action="" runat="server" method="post" onsubmit="return checkAll()">
         <label for="username">Username</label>
-        <input type="text" id="username" name="username" required/> <br /> <br />
+        <input type="text" id="username" name="username" required/> <input type="button" onclick="checkUname()" value="Check Username" /> <br /> <br />
 
         <label for="email">Email</label>
         <input type="email" id="email" name="email" required/><br /><br />
         
         <label for="pass">Password</label>
-        <input type="password" id="pass" name="pass" required/><br /> <br />
+        <input type="password" id="pass" name="pass" required/> <input type="button" onclick="checkPass()" value="Check Password" /> <br /> <br />
 
         <label for="fname">First Name</label>
-        <input type="text" id="fname" name="fname" required/><br /><br />
+        <input type="text" id="fname" name="fname" required/> <input type="button" onclick="checkFname()" value="Check First Name" /><br /><br />
 
         <label for="lname">Last Name</label>
-        <input type="text" id="lname" name="lname" required/><br /><br />
+        <input type="text" id="lname" name="lname" required/> <input type="button" onclick="checkLname()" value="Check Last Name" /><br /><br />
 
 
         <p>Gender: </p>
@@ -74,11 +203,12 @@
         <label for="hobbyOther">Other</label> <br /><br />
 
         <label for="PB">What is your PB (personal best) single?</label>
-        <input type="time" id="PB" name="PB" /><br /><br />
+        <input type="time" id="PB" name="PB" required/><br /><br />
         
         <label for="PBavg">What is your PB ao5 (avarage of 5)?</label>
-        <input type="time" id="PBavg" name="PBavg" /><br /><br /><br />
+        <input type="time" id="PBavg" name="PBavg" required/><br /><br /><br />
 
+        <input type="button" onclick="checkAll()" value="Check Validity of input" />
         <input type="submit" value="submit" name="submit"/>
         <input type="reset" value="reset" />
     </form>

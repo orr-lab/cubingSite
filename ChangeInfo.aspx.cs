@@ -9,6 +9,15 @@ public partial class ChangeInfo : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (Request.Form["submit2"] != null)
+        {
+            string uName = Request.Form["uName"];
+            string toChange = Request.Form["toChange"];
+            string changeTo = Request.Form["changeTo"];
+            string pw = Request.Form["pw"];
+            if 
+            string sql1 = "UPDATE [users] SET " + toChange + " = '" + changeTo + "' WHERE uName = '" + uName + "' AND pw = '" + pw + "'";
+            MyAdoHelper.DoQuery("Database.mdf", sql1);
+        }
     }
 }

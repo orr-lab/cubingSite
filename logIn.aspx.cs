@@ -11,7 +11,7 @@ public partial class logIn : System.Web.UI.Page
     public string msg;
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["isAdmin"] != null && Session["isAdmin"].ToString() == "true")
+        if (Session["admin"] == "true")
         {
             Response.Redirect("admin.aspx");
         }
@@ -28,10 +28,10 @@ public partial class logIn : System.Web.UI.Page
                     msg = "Welcome in!";
                     Session["user"] = uName;
                     Response.Write("hello to " + Session["user"]);
-                    string sql3 = "SELECT * FROM [users] WHERE uName = '" + uName + "' and [admin?] = 1";
+                    string sql3 = "SELECT * FROM [users] WHERE uName = '" + uName + "' and [admin] = 1";
                     if (MyAdoHelper.IsExist("Database.mdf", sql3))
                     {
-                        Session["isAdmin"] = "true"; 
+                        Session["admin"] = "true"; 
                         Response.Redirect("admin.aspx");
                     }
                     Response.Redirect("timer.aspx");

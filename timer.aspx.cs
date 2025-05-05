@@ -9,9 +9,10 @@ public partial class timer : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["User"] == null)
+        /*if (Session["User"] != "guest")
         {
             Response.Redirect("register.aspx");
         }
+        */
     }
 }

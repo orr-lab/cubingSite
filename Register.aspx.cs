@@ -88,7 +88,7 @@ public partial class Register : System.Web.UI.Page
                 msg = "You already exist in our site!";
             else
             {
-                string sql2 = "Insert into [users] (uName,email,pw,fName,lName,gender,age,vGaming,bGaming,biking,dnd,sports,hobbyother) values ('" + uName + "','" + email + "','" + pw + " ',' " + fName + "','" + lName + "','" + gender + "','" + age + "',"+vGaming+","+bGaming+","+biking+","+dnd+","+sports+","+hobbyOther+");";
+                string sql2 = "Insert into [users] (uName,email,pw,fName,lName,gender,age,vGaming,bGaming,biking,dnd,sports,hobbyother,admin) values ('" + uName + "','" + email + "','" + pw + " ',' " + fName + "','" + lName + "','" + gender + "','" + age + "',"+vGaming+","+bGaming+","+biking+","+dnd+","+sports+","+hobbyOther+",0);";
                 MyAdoHelper.DoQuery("Database.mdf", sql2);
                 msg = "you were added to our site!";
                 
