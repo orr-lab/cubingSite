@@ -12,7 +12,7 @@ public partial class admin : System.Web.UI.Page
     public string tb = "";
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["admin"] == "false")
+        if (Session["admin"] == "False")
         {
             Response.Redirect("Home.aspx");
         }

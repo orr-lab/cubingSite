@@ -81,7 +81,6 @@ public partial class Register : System.Web.UI.Page
             int secondsAvg = avgSpan.Minutes + 1;
 
             float singleFloat = minutesSingle + secondsSingle;
-            float avgFloat = minutesAvg + secondsAvg;
 
             string sql1 = "Select * from [users] where email='" + email + "'";
             if (MyAdoHelper.IsExist("Database.mdf", sql1))
@@ -93,7 +92,7 @@ public partial class Register : System.Web.UI.Page
                 msg = "you were added to our site!";
                 
 
-                string sql3 = "Insert into [PBs] (uName,single,ao5) values ('" + uName + "'," + singleFloat + "," + avgFloat + ");";
+                string sql3 = "Insert into [PBs] (uName,single) values ('" + uName + "'," + singleFloat + "000);";
                 MyAdoHelper.DoQuery("Database.mdf", sql3);
 
                 Session["user"] = uName;

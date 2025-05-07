@@ -21,6 +21,9 @@
     </style>
 
     <script>
+        const times = new Array(12);
+        const 
+
         function genarateScramble(){
             const options = ['U', 'D', 'R', 'L', 'F', 'B'];
             const modifires = ['', "'", '2'];
@@ -39,6 +42,48 @@
             document.getElementById("scramble").innerHTML = scramble.trim();
         }
 
+        let startTime = null;
+        let timerInterval = null;
+        let running = false;
+
+        function formatTime(ms) {
+            const totalSeconds = ms / 1000;
+            const minutes = Math.floor(totalSeconds / 60);
+            const seconds = Math.floor(totalSeconds % 60);
+            const hundredths = Math.floor((totalSeconds % 1) * 100);
+
+            return minutes + ":" + seconds + "." + hundredths;
+        }
+
+        function updateTimerDisplay() {
+            const now = Date.now();
+            const elapsed = now - startTime;
+            document.getElementById("time").textContent = formatTime(elapsed);
+        }
+
+        function startTimer() {
+            startTime = Date.now();
+            timerInterval = setInterval(updateTimerDisplay, 10);
+        }
+
+        function stopTimer() {
+            clearInterval(timerInterval);
+            updateTimerDisplay(); // Final update
+        }
+
+        window.addEventListener("keydown", function (event) {
+            if (event.code === "Space") {
+                event.preventDefault(); // Prevent page scroll
+                if (!running) {
+                    startTimer();
+                } else {
+                    stopTimer();
+                    genarateScramble();
+                }
+                running = !running;
+            }
+        });
+
         window.addEventListener("load", genarateScramble);
     </script>
 </asp:Content>
@@ -46,7 +91,7 @@
     <h1 style="margin-left: 0px;">Rubik's Cube Timer</h1> <br />
     <h2 id="scramble">Scramble goes here</h2>
 
-    <h1 id="time" class="time"> 99:99.99</h1> <br /><br /><br />
+    <h1 id="time" class="time"> Press Spacebar</h1> <br /><br /><br />
 
     <hr />
     <h3 id="ao5">Current avagrage of 5: </h3>
