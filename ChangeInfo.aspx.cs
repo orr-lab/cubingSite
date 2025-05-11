@@ -9,7 +9,7 @@ public partial class ChangeInfo : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Request.Form["submit2"] != null)
+        if (Request.Form["submit"] != null)
         {
             string uName = Request.Form["uName"];
             string toChange = Request.Form["toChange"];
