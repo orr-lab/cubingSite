@@ -61,7 +61,7 @@
             document.getElementById("time").textContent = formatTime(elapsed);
         }
 
-        function startTimer() {
+        function startTimer()   {
             startTime = Date.now();
             timerInterval = setInterval(updateTimerDisplay, 10);
         }
@@ -69,6 +69,29 @@
         function stopTimer() {
             clearInterval(timerInterval);
             updateTimerDisplay(); // Final update
+            const now = Date.now();
+            var finalTime = now - startTime;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "timer.aspx/ProcessTime", true);  // Adjusted the URL to `timer.aspx/ProcessTime`
+            xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    console.log("Response received:", xhr.responseText);
+
+                    var response = JSON.parse(xhr.responseText);
+                    var PB = response.PB;
+                    var best = responce.best;
+                } else {
+                    console.log("Error:", xhr.status);
+                }
+            };
+
+            var data = JSON.stringify({ "time": finalTime });
+            xhr.send(data);
+
+            document.getElementById.innerHTML("The best on this website is " + formatTime(PB));
         }
 
         window.addEventListener("keydown", function (event) {
@@ -111,7 +134,7 @@
         <option value="globAvg">All-time Avarage</option>
     </select>
 
-    <h3 id="place">You are paced </h3>
+    
     <h3 id="best">The best on this website is: </h3>
     
     
