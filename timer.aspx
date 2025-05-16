@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="timer.aspx.cs" Inherits="timer" %>
+﻿   <%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="timer.aspx.cs" Inherits="timer" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <title>Timer</title>
@@ -22,7 +22,6 @@
 
     <script>
         const times = new Array(12);
-        const 
 
         function genarateScramble(){
             const options = ['U', 'D', 'R', 'L', 'F', 'B'];
