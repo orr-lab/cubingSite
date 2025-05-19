@@ -162,19 +162,19 @@
 
     <form id="form1" name="form1" action="" runat="server" method="post" onsubmit="return checkAll()">
         <label for="username">Username</label>
-        <input type="text" id="username" name="username" required/> <input type="button" onclick="checkUname()" value="Check Username" /> <br /> <br />
+        <input type="text" id="username" name="username" required/><br /> <br />
 
         <label for="email">Email</label>
         <input type="email" id="email" name="email" required/><br /><br />
         
         <label for="pass">Password</label>
-        <input type="password" id="pass" name="pass" required/> <input type="button" onclick="checkPass()" value="Check Password" /> <br /> <br />
+        <input type="password" id="pass" name="pass" required/><br /> <br />
 
         <label for="fname">First Name</label>
-        <input type="text" id="fname" name="fname" required/> <input type="button" onclick="checkFname()" value="Check First Name" /><br /><br />
+        <input type="text" id="fname" name="fname" required/><br /><br />
 
         <label for="lname">Last Name</label>
-        <input type="text" id="lname" name="lname" required/> <input type="button" onclick="checkLname()" value="Check Last Name" /><br /><br />
+        <input type="text" id="lname" name="lname" required/><br /><br />
 
 
         <p>Gender: </p>
@@ -205,10 +205,7 @@
         <label for="PB">What is your PB (personal best) single?</label>
         <input type="time" id="PB" name="PB" required/><br /><br />
         
-        <label for="PBavg">What is your PB ao5 (avarage of 5)?</label>
-        <input type="time" id="PBavg" name="PBavg" required/><br /><br /><br />
 
-        <input type="button" onclick="checkAll()" value="Check Validity of input" />
         <input type="submit" value="submit" name="submit"/>
         <input type="reset" value="reset" />
     </form>

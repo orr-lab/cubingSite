@@ -11,10 +11,15 @@
     <br />
 
     <form runat="server" method="post">
+        <h3 style="color: red">RESET WORLD BEST</h3>
+        <input type="submit"  value="Reset!" name ="submit3" /> <br />
         <p>username:</p>
         <input type="text" name ="uName" />
         <h3 style="color:red">DELETE</h3>
         <input type="submit" value="Delete!" name="submit1"/> <br />
+        <h3 style="color: red">RESET PB</h3>
+        <input type="submit" value="Reset!" name="submit4" />
+        <br />
         <h3>CHANGE INFO</h3>
         <p>What do you want to change? </p> 
         <select name="toChange">

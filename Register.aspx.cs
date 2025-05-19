@@ -92,11 +92,13 @@ public partial class Register : System.Web.UI.Page
                 msg = "you were added to our site!";
                 
 
-                string sql3 = "Insert into [PBs] (uName,single) values ('" + uName + "'," + singleFloat + "000);";
+                string sql3 = "Insert into [PBs] (uName, single) values ('" + uName + "'," + singleFloat + "000);";
                 MyAdoHelper.DoQuery("Database.mdf", sql3);
 
                 Session["user"] = uName;
                 Response.Write("hello to " + Session["user"]);
+
+                Response.Redirect("timer.aspx");
             }
         }
     }

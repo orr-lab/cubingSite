@@ -60,7 +60,7 @@
             document.getElementById("time").textContent = formatTime(elapsed);
         }
 
-        function startTimer() {
+        function startTimer()   {
             startTime = Date.now();
             timerInterval = setInterval(updateTimerDisplay, 10);
         }
@@ -68,6 +68,56 @@
         function stopTimer() {
             clearInterval(timerInterval);
             updateTimerDisplay(); // Final update
+            const now = Date.now();
+            var finalTime = now - startTime;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "timer.aspx/ProcessTime", true);  // Adjusted the URL to `timer.aspx/ProcessTime`
+            xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+
+
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    console.log("Response received:", xhr.responseText);
+
+                    var response = JSON.parse(xhr.responseText);
+                    response = JSON.parse(response.d);
+                    var PB = parseInt(response.PB);
+                    var best = parseInt(response.best);
+                    document.getElementById("PB").innerHTML = ("Personal best single: " + formatTime(PB));
+                    document.getElementById("best").innerHTML = ("The best on this website is " + formatTime(best));
+                } else {
+                    console.log("Error:", xhr.status);
+                }
+            };
+
+            var data = JSON.stringify({ "time": finalTime });
+            xhr.send(data);
+            startTime = null;
+        }
+
+        function getTimes() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "timer.aspx/GetTime", true)
+            xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+
+
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    console.log("Response received:", xhr.responseText);
+
+                    var response = JSON.parse(xhr.responseText);
+                    response = JSON.parse(response.d);
+                    var PB = parseInt(response.PB);
+                    var best = parseInt(response.best);
+                    document.getElementById("PB").innerHTML = ("Personal best single: " + formatTime(PB));
+                    document.getElementById("best").innerHTML = ("The best on this website is " + formatTime(best));
+                } else {
+                    console.log("Error:", xhr.status);
+                }
+            };
+
+            xhr.send(JSON.stringify({}));
         }
 
         window.addEventListener("keydown", function (event) {
@@ -83,7 +133,10 @@
             }
         });
 
-        window.addEventListener("load", genarateScramble);
+        window.addEventListener("load", function () {
+            genarateScramble();
+            getTimes();
+        });;
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -91,26 +144,10 @@
     <h2 id="scramble">Scramble goes here</h2>
 
     <h1 id="time" class="time"> Press Spacebar</h1> <br /><br /><br />
-
-    <hr />
-    <h3 id="ao5">Current avagrage of 5: </h3>
-    <h3 id="ao12">Current avarage of 12: <br /></h3>
-    <h3 id="globalAvg">All-time avarage: </h3>
     <br />
     <h3 id="PB">Personal best single: </h3>
-    <h3 id="PBo5">Personal best avarage of 5: </h3>
-    <h3 id="PBo12">Personal best avarage of 12: </h3>
     <hr />
-    <h2>Compared to the world</h2>
-    <select name="branch" id="branch">
-        <option value="single">Single</option>
-        <option value="ao5">Avrage of 5</option>
-        <option value="ao12">Avrage of 12</option>
-        <option value="ao100">Avarage of 100</option>
-        <option value="globAvg">All-time Avarage</option>
-    </select>
-
-    <h3 id="place">You are paced </h3>
+    <h2>Compared to the world!</h2>
     <h3 id="best">The best on this website is: </h3>
     
     
