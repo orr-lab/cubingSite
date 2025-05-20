@@ -19,13 +19,15 @@ public partial class ChangeInfo : System.Web.UI.Page
             {
                 string sql1 = "UPDATE [users] SET " + toChange + " = '" + changeTo + "' WHERE uName = '" + uName + "' AND pw = '" + pw + "'";
                 MyAdoHelper.DoQuery("Database.mdf", sql1);
+
+                if (toChange.Equals("uName"))
+                {
+                    string sql2 = "UPDATE [PBs] SET uName = '" + changeTo + "' WHERE uName = '" + uName + "'AND pw = '" + pw + "'";
+                    MyAdoHelper.DoQuery("Database.mdf", sql2);
+                }
             }
 
-            if (toChange.Equals("uName"))
-            {
-                string sql2 = "UPDATE [PBs] SET uName = '" + changeTo + "' WHERE uName = '" + uName + "'";
-                MyAdoHelper.DoQuery("Database.mdf", sql2);
-            }
+            
         }
     }
 }

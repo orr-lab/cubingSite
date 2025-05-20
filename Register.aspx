@@ -138,13 +138,13 @@
         }
 
         function checkUname() {
-            var pass = document.getElementById("username").value;
+            var uname = document.getElementById("username").value;
 
-            if (pass.length >= 20) {
+            if (uname.length >= 20) {
                 window.alert("Username is too long (max 20 chars)")
                 return false;
             }
-            if (pass.length <= 1) {
+            if (uname.length <= 1) {
                 window.alert("Username is too short (min 1 chars)")
                 return false;
             }

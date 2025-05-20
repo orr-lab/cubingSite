@@ -69,16 +69,11 @@ public partial class Register : System.Web.UI.Page
             }
 
             string pbSingle = Request.Form["PB"];
-            string pbAo5 = Request.Form["PBavg"];
 
             TimeSpan pbSpan = TimeSpan.Parse(pbSingle);
-            TimeSpan avgSpan = TimeSpan.Parse(pbAo5);
 
             int minutesSingle = pbSpan.Hours;
             int secondsSingle = pbSpan.Minutes + 1; //add one because its without miliseconds and I want to account for the worst
-            
-            int minutesAvg = avgSpan.Hours;
-            int secondsAvg = avgSpan.Minutes + 1;
 
             float singleFloat = minutesSingle + secondsSingle;
 
